@@ -155,6 +155,6 @@ class User extends CI_Model {
 			}
 			return ['valid' => false, 'data'=>$verification];
 		}
-		return ['valid'=>false];
+		return ['valid'=>false, 'headers'=>$headers];
 	}
 }
