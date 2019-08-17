@@ -51,6 +51,10 @@ class Users extends CI_Controller
 			return $this->returnHelper(400, ['error'=>'invalid method']);
 
 		}
+		$enabled = $this->config->item('enable_register');
+		if(!$enabled) {
+			return $this->returnHelper(401, ['error'=>'Currently disabled']);
+		}
 		if(!$this->checkElements(['username', 'password', 'email'])) {
 			return $this->returnHelper(400, ['error'=>'invalid form']);
 		}
