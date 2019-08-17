@@ -138,7 +138,7 @@ class Projects extends CI_Controller
 			return $this->returnHelper(404, ['error' => 'Invalid project']);
 		}
 
-		if(!$validUser['valid'] || $project->user_id != $validUser['data']['id']) {
+		if(!$validUser['valid'] || $project['user_id'] != $validUser['data']['id']) {
 			return $this->returnHelper(401, ['error' => 'You can\'t do that']);
 		}
 		$result = $this->project->deleteProject($id);
