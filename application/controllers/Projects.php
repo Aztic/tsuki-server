@@ -80,7 +80,7 @@ class Projects extends CI_Controller
 			// Get a list of all projects for the current user
 			$validUser = $this->user->isValidUser($headers);
 			if(!$validUser['valid']) {
-				return $this->returnHelper(401, ['error' => 'You can\'t do that']);
+				return $this->returnHelper(401, ['error' => 'You can\'t do that', 'data'=>$validUser]);
 			}
 			$userid = $validUser['data']['id'];
 			$page = $this->input->get('page') ? (int) $this->input->get('page') : 1;
