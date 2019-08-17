@@ -147,14 +147,21 @@ class User extends CI_Model {
 	 * @return array
 	 */
 	public function isValidUser($headers) {
+		$toCheck = null;
 		if(array_key_exists('x-token', $headers)) {
-			$verification = $this->checkToken($headers['x-token']);
+			$toCheck = 'x-token';
+		}
+		else if(array_key_exists('X-Token', $headers)) {
+			$toCheck = 'X-Token';
+		}
+		if($toCheck != null) {
+			$verification = $this->checkToken($headers[$toCheck]);
 			if($verification['status']) {
 				$data = $verification['data'];
 				return ['valid'=>true, 'data'=>$data];
 			}
-			return ['valid' => false, 'data'=>$verification];
+			return ['valid' => false];
 		}
-		return ['valid'=>false, 'headers'=>$headers];
+		return ['valid'=>false];
 	}
 }

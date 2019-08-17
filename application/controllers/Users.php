@@ -113,8 +113,15 @@ class Users extends CI_Controller
 		$headers = $this->input->request_headers();
 		$data = array('error' => 'invalid token');
 		$status = 400;
+		$toCheck = null;
 		if(array_key_exists('x-token', $headers)) {
-			$verification = $this->user->checkToken($headers['x-token']);
+			$toCheck = 'x-token';
+		}
+		else if(array_key_exists('X-Token', $headers)) {
+			$toCheck = 'X-Token';
+		}
+		if($toCheck != null) {
+			$verification = $this->checkToken($headers[$toCheck]);
 			if($verification['status']) {
 				$data = $verification['data'];
 				$status = 200;
