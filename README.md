@@ -21,9 +21,11 @@ $ cp jwt_config.example.php jwt_config.php
 $ cp database.example.php database.php
 ```
 
-- Fill them
+- Fill them and change `jwt_ekey` to `jwt_key`.
 
 - Run the migrations inside `migrations` folder inside PostgreSQL
+
+- Install dependencies with `composer install`
 
 - Configure Nginx / Apache as necessary. Forbid access to the migrations folder too
 
