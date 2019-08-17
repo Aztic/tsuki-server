@@ -153,6 +153,7 @@ class User extends CI_Model {
 				$data = $verification['data'];
 				return ['valid'=>true, 'data'=>$data];
 			}
+			return ['valid' => false, 'data'=>$verification];
 		}
 		return ['valid'=>false];
 	}
