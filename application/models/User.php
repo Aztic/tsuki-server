@@ -131,7 +131,7 @@ class User extends CI_Model {
 		}
 		catch (Exception $e) {
 			// Invalid token
-			return ['status' => false, 'error'=>'Invalid token', 'key'=>$this->config->item('jwt_key')];
+			return ['status' => false, 'error'=>'Invalid token'];
 		}
 
 		$decoded = (array) $decoded;

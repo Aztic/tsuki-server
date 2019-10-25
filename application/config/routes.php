@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-//$route['test'] = 'test';
 $route['users/info'] = 'users/userInfo';
 $route['users/register-status']['get'] = 'users/isEnabledRegister';
 // Get the project (or the edit info)
@@ -59,6 +58,6 @@ $route['projects/(:any)']['delete'] = 'projects/deleteProject/$1';
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+//$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

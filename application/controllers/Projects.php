@@ -147,7 +147,7 @@ class Projects extends CI_Controller
 
 	/**
 	 * Get a project info. Either it's HTML or all its data
-	 * @param null $id
+	 * @param null|string $id
 	 * @return mixed
 	 */
 	public function getProject($id=null) {
